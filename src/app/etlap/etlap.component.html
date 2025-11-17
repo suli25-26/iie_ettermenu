@@ -1,6 +1,6 @@
 <h2>Étlap</h2>
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>Név</th>
@@ -11,7 +11,26 @@
     </thead>
     <tbody>
         @for(etel of etlap; track etel.nev) {
-
+            <tr [class]="etel.vega ? 'table-success' : ''">
+                <td>
+                    {{etel.nev}}
+                    @if(etel.kategoria == 'Főétel' && etel.ar > 3000) {
+                        <span class="badge bg-danger">Nagy</span>
+                    }
+                </td>
+                <td>{{etel.kategoria}}</td>
+                <td>{{etel.ar}}</td>
+                <td>{{etel.vega ? 'igen' : 'nem'}}</td>
+            </tr>
         }
     </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td>Összeg: </td>
+            <td>{{osszeg}}</td>
+            <td></td>
+        </tr>
+    </tfoot>
 </table>
+

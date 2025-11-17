@@ -20,4 +20,14 @@ export class EtlapComponent {
     { nev: 'Zöldségkrémleves', kategoria: 'Leves', ar: 1550, vega: true }
   ];
 
+  osszeg = 0;
+  ngOnInit() {
+    // this.etlap.forEach( (etel: any) =>{
+    //   this.osszeg = this.osszeg + etel.ar
+    // })
+    for(let i=0; i<this.etlap.length; i++) {
+      this.osszeg = this.osszeg + this.etlap[i].ar
+    }
+  }
+  
 }
